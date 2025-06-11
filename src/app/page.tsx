@@ -58,5 +58,6 @@ export default function Home() {
         <footer className="text-sm text-gray-500 mt-12">&copy; 2025 Metafiction Media</footer>
       </main>
     </>
-  );
+  );// Trigger redeploy
+
 }
