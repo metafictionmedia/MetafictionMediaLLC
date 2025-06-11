@@ -29,5 +29,8 @@ body {
   background-color: var(--color-background); /* fallback color */
   color: var(--color-foreground);
   font-family: var(--font-sans);
+  /* Force all text to be readable */
+body, p, h1, h2, h3, h4, h5, h6, span, a {
+  color: #111 !important; /* nearly black */
+ }
 }
-
