@@ -1,56 +1,62 @@
+
 'use client';
 
+import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
 export default function Home() {
+  const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setIsSubmitted(true);
+      console.log('Email submitted:', email);
+    }
+  };
+
   return (
     <>
       <Head>
-        <title>Metafiction Media - A New Universe</title>
-        <meta name="description" content="Official site of Metafiction Media. Coming Soon." />
+        <title>Metafiction Media – Where stories become reality… eventually</title>
+        <meta name="description" content="Coming soon teaser for Metafiction Media's upcoming properties: Jeffree the Monster, Yudy the Yogi Unicorn, and MusiCasa." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="min-h-screen bg-white text-gray-800 font-sans p-4 relative overflow-hidden">
-        {/* Hero Section */}
-        <section className="text-center pt-16 pb-8 z-10 relative">
-          <h1 className="text-5xl font-bold mb-4">Metafiction Media</h1>
-          <p className="text-xl text-gray-600 max-w-xl mx-auto">
-            A new kind of storytelling universe is taking shape.
-          </p>
-        </section>
+      <main className="sketchbook-bg min-h-screen relative overflow-hidden px-4 py-12 text-center font-sans">
+        <div className="notebook-holes absolute left-0 top-0 w-16 h-full z-0" />
 
-        {/* Shopify Placeholder */}
-        <section className="text-center py-8">
-          <div className="inline-block bg-gray-100 rounded-lg p-6 shadow-md">
-            <p className="mb-4 text-lg font-medium">Our first release:</p>
-            <p className="text-xl font-bold mb-4">Jeffree the Monster — Book + App</p>
-            <div id="shopify-buy-button" className="border border-dashed border-gray-400 p-4 rounded">
-              <p className="text-gray-500">[Shopify Buy Button Placeholder]</p>
-            </div>
+        <Image src="/assets/cartoon-signs.png" alt="cartoon signs" width={150} height={150} className="absolute top-8 left-8 hidden md:block" />
+        <Image src="/assets/gate-sketch.png" alt="Coming Soon Gate" width={400} height={400} className="mx-auto mb-4" />
+
+        <h1 className="text-5xl font-bold mb-2 tracking-wider">COMING SOON</h1>
+        <p className="text-md italic text-gray-600 mb-8">The festival is being set up, the magic is coming…</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="bg-white/80 p-4 rounded shadow-md">
+            <h2 className="font-bold text-lg mb-2">Jeffree the Monster</h2>
+            <p className="text-sm text-gray-700">
+              A misunderstood monster and his only friend must prove they are telling the truth when the most popular puppet at school convinces everyone otherwise.
+            </p>
           </div>
-        </section>
+          <div className="bg-white/80 p-4 rounded shadow-md">
+            <h2 className="font-bold text-lg mb-2">Yudy the Yogi Unicorn</h2>
+            <p className="text-sm text-gray-700">
+              Yudy the Yogi’s personal journal about how to overcome the worst week ever with yoga.
+            </p>
+          </div>
+          <div className="bg-white/80 p-4 rounded shadow-md">
+            <h2 className="font-bold text-lg mb-2">MusiCasa</h2>
+            <p className="text-sm text-gray-700">
+              A family of guitars struggle to find harmony when the electric kids want to go solo because their acoustic parents are too classical for change.
+            </p>
+          </div>
+        </div>
 
-        {/* Sketchbook Mockup Art */}
-        <section className="flex flex-wrap justify-center gap-4 mt-8 z-0">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="w-32 h-32 relative">
-              <Image
-                src={`/sketch_thumb_${i}.jpg`}
-                alt={`Sketch ${i}`}
-                fill
-                className="object-contain grayscale opacity-80 hover:opacity-100 hover:grayscale-0 transition"
-              />
-            </div>
-          ))}
-        </section>
-
-        <footer className="text-center text-sm text-gray-400 mt-12">
-          &copy; 2025 Metafiction Media
-        </footer>
+        <footer className="text-sm text-gray-500 mt-12">&copy; 2025 Metafiction Media</footer>
       </main>
     </>
   );
 }
-
