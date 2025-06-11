@@ -1,18 +1,11 @@
 
 'use client';
 
-import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
 export default function Home() {
-  const [email, setEmail] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setIsSubmitted(true);
+  
       console.log('Email submitted:', email);
     }
   };
