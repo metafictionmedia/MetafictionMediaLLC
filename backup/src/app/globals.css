@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background-image: url('/assets/paper-background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+
+  background-color: var(--color-background); /* fallback color */
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  /* Force all text to be readable */
+body, p, h1, h2, h3, h4, h5, h6, span, a {
+  color: #111 !important; /* nearly black */
+ }
+}
