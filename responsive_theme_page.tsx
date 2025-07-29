@@ -19,7 +19,7 @@ export default function Home() {
 
     mediaQuery.addEventListener('change', handleChange)
     return () => mediaQuery.removeEventListener('change', handleChange)
-  }, []);
+  }, [])
 
   const themeClasses = {
     background: isDarkMode 
@@ -38,7 +38,7 @@ export default function Home() {
     buttonSecondary: isDarkMode
       ? 'bg-white/10 hover:bg-white/20 text-white border-white/20'
       : 'bg-gray-100 hover:bg-gray-200 text-gray-900 border-gray-300'
-  };
+  }
 
   const renderNavigation = () => (
     <nav className={`fixed top-0 left-0 right-0 z-50 ${themeClasses.navBg} border-b`}>
@@ -72,7 +72,7 @@ export default function Home() {
         </div>
       </div>
     </nav>
-  );
+  )
 
   const renderHome = () => (
     <div className="pt-16">
@@ -122,15 +122,15 @@ ${themeClasses.buttonSecondary}`}
             {[
               {
                 title: "Jeffree the Monster",
-                description: `A heartwarming tale of friendship and acceptance in a world where being 
-different is a superpower.`,
+                description: "A heartwarming tale of friendship and acceptance in a world where being 
+different is a superpower.",
                 image: "/assets/IMG_3672(2).jpeg",
                 section: "jeffree"
               },
               {
                 title: "U-GA Universe",
-                description: `Magical adventures in a world where unicorns and friendship create the most 
-powerful magic.`,
+                description: "Magical adventures in a world where unicorns and friendship create the most 
+powerful magic.",
                 image: "/assets/5BEC9A40-6F4E-4F5E-A28D-D2474441D5BD.jpeg",
                 section: "about"
               },
@@ -205,7 +205,7 @@ experiences.
         </div>
       </div>
     </div>
-  );
+  )
 
   const renderJeffree = () => (
     <div className="pt-24 pb-16 px-4">
@@ -221,14 +221,14 @@ experiences.
           </h2>
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { name: "Jeffree", image: "/assets/IMG_3672(2).jpeg", description: `The lovable purple monster 
-with a heart of gold` },
-              { name: "Barry", image: "/assets/Barry.jpeg", description: `The brave boy who sees beyond 
-appearances` },
-              { name: "Monty", image: "/assets/IMG_6072.jpeg", description: `The wise green friend with 
-endless stories` },
-              { name: "Sam", image: "/assets/IMG_6073(1).jpeg", description: `The adventurous girl with 
-blonde hair and big dreams` }
+              { name: "Jeffree", image: "/assets/IMG_3672(2).jpeg", description: "The lovable purple monster 
+with a heart of gold" },
+              { name: "Barry", image: "/assets/Barry.jpeg", description: "The brave boy who sees beyond 
+appearances" },
+              { name: "Monty", image: "/assets/IMG_6072.jpeg", description: "The wise green friend with 
+endless stories" },
+              { name: "Sam", image: "/assets/IMG_6073(1).jpeg", description: "The adventurous girl with 
+blonde hair and big dreams" }
             ].map((character, index) => (
               <div key={index} className={`${themeClasses.cardBg} rounded-xl p-6 border text-center`}>
                 <Image
