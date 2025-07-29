@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metafiction Media - Stories That Know They're Stories</title>
+    <meta name="description" content="Emotionally honest, creatively daring, and narratively layered stories across books, video, merchandise, and apps.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray-50: #FAFAFA;
+            --gray-100: #F5F5F5;
+            --gray-200: #E5E5E5;
+            --gray-300: #D4D4D4;
+            --gray-400: #A3A3A3;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --gray-800: #262626;
+            --gray-900: #171717;
+            --blue: #3B82F6;
+            --purple: #8B5CF6;
+            --emerald: #10B981;
+            --orange: #F97316;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            color: var(--gray-900);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Ultra-minimal Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 48px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-weight: 400;
+            font-size: 15px;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover, 
+        .nav-link.active {
+            color: var(--black);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--black);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+        }
+
+        .page {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .page.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Minimal Hero */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: var(--white);
+        }
+
+        .hero-logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 40px;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .hero .tagline {
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--gray-500);
+            margin-bottom: 40px;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-description {
+            font-size: 20px;
+            color: var(--gray-600);
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-align: center;
+            letter-spacing: -0.01em;
+        }
+
+        .btn-primary {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--gray-800);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--black);
+            border: 1px solid var(--gray-300);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gray-400);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gray-600);
+            border: 1px solid var(--gray-300);
+        }
+
+        .btn-outline:hover {
+            background: var(--gray-50);
+            color: var(--black);
+        }
+
+        /* Clean Sections */
+        .section {
+            padding: 120px 0;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 80px;
+            color: var(--black);
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--gray-500);
+            text-align: center;
+            margin-bottom: 80px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .grid {
+            display: grid;
+            gap: 32px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--gray-300);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gray-100);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 24px;
+            color: var(--gray-600);
+        }
+
+        /* Character Showcase */
+        .character-showcase {
+            background: var(--gray-50);
+            padding: 120px 0;
+        }
+
+        .character-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 24px;
+            padding: 80px 60px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Creator Bio */
+        .creator-bio {
+            background: var(--gray-50);
+            border-radius: 24px;
+            padding: 80px 60px;
+            margin-top: 80px;
+        }
+
+        .creator-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .creator-photo {
+            width: 300px;
+            height: 400px;
+            background: var(--gray-200);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--gray-500);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        .creator-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .creator-info h3 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--black);
+        }
+
+        .creator-info h4 {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--gray-500);
+            margin-bottom: 24px;
+        }
+
+        /* Dark sections */
+        .dark-section {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .dark-section h2,
+        .dark-section h3 {
+            color: var(--white);
+        }
+
+        .dark-section .card {
+            background: var(--gray-900);
+            border-color: var(--gray-800);
+            color: var(--white);
+        }
+
+        .dark-section .card h3 {
+            color: var(--white);
+        }
+
+        .dark-section .card:hover {
+            border-color: var(--gray-700);
+        }
+
+        /* Accent colors for variety */
+        .accent-blue { 
+            color: var(--blue); 
+        }
+        
+        .accent-purple { 
+            color: var(--purple); 
+        }
+        
+        .accent-emerald { 
+            color: var(--emerald); 
+        }
+        
+        .accent-orange { 
+            color: var(--orange); 
+        }
+
+        .bg-blue { 
+            background: var(--blue); 
+        }
+        
+        .bg-purple { 
+            background: var(--purple); 
+        }
+        
+        .bg-emerald { 
+            background: var(--emerald); 
+        }
+        
+        .bg-orange { 
+            background: var(--orange); 
+        }
+
+        /* Utility classes */
+        .text-center { 
+            text-align: center; 
+        }
+        
+        .mb-0 { 
+            margin-bottom: 0; 
+        }
+        
+        .mb-1 { 
+            margin-bottom: 8px; 
+        }
+        
+        .mb-2 { 
+            margin-bottom: 16px; 
+        }
+        
+        .mb-3 { 
+            margin-bottom: 24px; 
+        }
+        
+        .mb-4 { 
+            margin-bottom: 32px; 
+        }
+        
+        .mb-6 { 
+            margin-bottom: 48px; 
+        }
+        
+        .mt-4 { 
+            margin-top: 32px; 
+        }
+        
+        .mt-6 { 
+            margin-top: 48px; 
+        }
+
+        .text-lg { 
+            font-size: 18px; 
+        }
+        
+        .text-xl { 
+            font-size: 20px; 
+        }
+        
+        .font-medium { 
+            font-weight: 500; 
+        }
+        
+        .font-semibold { 
+            font-weight: 600; 
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero .tagline {
+                font-size: 20px;
+            }
+
+            .hero-description {
+                font-size: 18px;
+            }
+
+            .hero-logo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: saturate(180%) blur(20px);
+                flex-direction: column;
+                padding: 40px 0;
+                transition: left 0.3s ease;
+                border-bottom: 1px solid var(--gray-200);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .grid-2, 
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .character-card {
+                padding: 40px 32px;
+            }
+
+            .creator-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .creator-photo {
+                width: 250px;
+                height: 320px;
+                margin: 0 auto;
+            }
+
+            .creator-bio {
+                padding: 40px 32px;
+            }
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --black: #FFFFFF;
+                --white: #0A0A0A;
+                --gray-50: #171717;
+                --gray-100: #262626;
+                --gray-200: #404040;
+                --gray-300: #525252;
+                --gray-400: #737373;
+                --gray-500: #A3A3A3;
+                --gray-600: #D4D4D4;
+                --gray-700: #E5E5E5;
+                --gray-800: #F5F5F5;
+                --gray-900: #FAFAFA;
+            }
+
+            .navbar {
+                background: rgba(10, 10, 10, 0.8);
+                border-bottom: 1px solid var(--gray-200);
+            }
+        }
+    </style>
+</head>
+<body>
+        <nav class="nav">
+            <div class="container">
+                <a href="#" onclick="showPage('home')" class="nav-logo">
+                    <img src="assets/Logo5.PNG" alt="Metafiction Media" style="height: 40px;">
+                </a>
+                <ul class="nav-menu" id="nav-menu">
+                <li><a href="#" class="nav-link active" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('about')">About</a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('jeffree')">Jeffree</a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('shop')">Shop</a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('projects')">Projects</a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('newsletter')">Newsletter</a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('contact')">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="container">
+                    <img src="assets/Logo6.PNG" alt="Metafiction Media" style="width: 400px; max-width: 90%; height: auto; margin: 0 auto 32px; display: block;">
+                    <p class="tagline">Stories That Know They're Stories</p>
+                    <p class="hero-description">
+                        We create emotionally honest, narratively layered experiences across books, digital media, and interactive content. Building the future of storytelling.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary" onclick="showPage('jeffree')">Explore Jeffree</a>
+                        <a href="#" class="btn btn-secondary" onclick="showPage('shop')">Shop</a>
+                        <a href="#" class="btn btn-outline" onclick="showPage('newsletter')">Newsletter</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="character-showcase">
+                <div class="container">
+                    <h2 class="section-title">Meet Jeffree</h2>
+                    <div class="character-card">
+                        <img src="assets/jeffreymain.JPEG" alt="Jeffree the Monster" style="width: 200px; height: auto; border-radius: 12px; margin: 0 auto 24px; display: block;">
+                        <h3 class="text-xl mb-2">A Character Who Knows He's in a Story</h3>
+                        <p class="text-lg mb-4">Jeffree is an awkward monster with no friends—except Barry, the kid next door. After a brutal first day of eighth grade, the two outcasts are forced into the school talent show. It's weird, it's messy… and it might just work.</p>
+                        <a href="#" class="btn btn-primary" onclick="showPage('jeffree')">Learn More</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title">Our Universe</h2>
+                    <div class="grid grid-3">
+                        <div class="card">
+                            <h3>Interactive Books</h3>
+                            <p>Meta-narrative children's literature with digital companions that expand storytelling possibilities.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Lifestyle Products</h3>
+                            <p>Thoughtfully designed merchandise that carries our storytelling philosophy into everyday life.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Digital Experiences</h3>
+                            <p>Apps and interactive media that push the boundaries of narrative and technology.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section dark-section">
+                <div class="container text-center">
+                    <h2 class="section-title">The Future of Storytelling</h2>
+                    <p class="section-subtitle">Building an interconnected universe where narrative meets technology, creating experiences that respect audience intelligence while delivering genuine emotional impact.</p>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-secondary" onclick="showPage('about')">Our Philosophy</a>
+                        <a href="#" class="btn btn-outline" onclick="showPage('projects')">What's Next</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page">
+            <section class="section">
+                <div class="container">
+                    <h1 class="section-title">About Metafiction Media</h1>
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <h3>Our Mission</h3>
+                            <p class="mb-3">We create stories that are emotionally honest, creatively daring, and narratively sophisticated. Our meta-narrative approach amplifies emotional impact by acknowledging the artificial nature of storytelling while celebrating its power to create human connection.</p>
+                            <p>Every project respects audience intelligence, delivering genuine experiences across age groups and media formats.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Creative Vision</h3>
+                            <p class="mb-3">We bridge innovative storytelling techniques with universal emotional experiences, building a scalable creative universe that expands across multiple media while maintaining consistent depth.</p>
+                            <p>Our approach creates deeper engagement and more memorable experiences through self-aware narratives.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Creator Bio Section -->
+                    <div class="creator-bio">
+                        <div class="creator-content">
+                            <div class="creator-photo">
+                                <img src="assets/IMG_0617.JPG" alt="Creator">
+                            </div>
+                            <div class="creator-info">
+                                <h3>Meet the Creator</h3>
+                                <h4>Founder & Creative Director</h4>
+                                <p class="mb-3">A visionary storyteller passionate about creating narratives that break the fourth wall while maintaining emotional authenticity. With a background in creative writing and digital media, the founder brings a unique perspective to children's literature and interactive storytelling.</p>
+                                <p class="mb-3">Driven by the belief that audiences of all ages deserve sophisticated, honest content, the creative approach combines traditional storytelling with innovative meta-narrative techniques. This philosophy extends across all Metafiction Media projects, from books to digital experiences.</p>
+                                <p>The journey began with a simple question: What if characters knew they were in stories? This curiosity has evolved into a comprehensive creative universe that challenges conventional narrative boundaries while celebrating the power of imagination and connection.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mt-6 text-center">
+                        <h3 class="text-xl mb-3">The Meta-Narrative Advantage</h3>
+                        <p class="text-lg mb-4">Characters acknowledge they're in stories, plots reference their own structure, and emotional moments feel genuine because they don't hide behind narrative conventions.</p>
+                        <div class="grid grid-3 mt-6">
+                            <div>
+                                <h4 class="font-semibold mb-1">Audience Respect</h4>
+                                <p>Never talking down, regardless of age</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Innovation</h4>
+                                <p>Pushing boundaries with authenticity</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Connection</h4>
+                                <p>Building shared experiences</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Jeffree Page -->
+        <div id="jeffree" class="page">
+            <section class="hero" style="background: var(--gray-50);">
+                <div class="container">
+                    <h1>Jeffree the Monster</h1>
+                    <p class="tagline">Where Self-Awareness Meets Heart</p>
+                </div>
+            </section>
+
+            <!-- Story Section -->
+            <section class="section">
+                <div class="container">
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <h3>Story</h3>
+                            <p class="mb-3"><strong>Target:</strong> Ages 6-12 with cross-generational appeal</p>
+                            <p class="mb-3"><strong>Themes:</strong> Identity, acceptance, emotional intelligence</p>
+                            <p class="mb-3">On the first day of eighth grade, Jeffree the Monster just wants to survive without being noticed. But after getting humiliated on the way to school—and stuck with the only kid who calls him a friend, Barry—he finds out they're both being forced to perform in the school talent show by the end of the week. Can two outcasts pull it off, or will the pressure crush them before they hit the stage?</p>
+                            <p>This self-awareness deepens rather than diminishes emotional impact, allowing honest conversations about real feelings and experiences.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Digital Experience</h3>
+                            <p class="mb-3"><strong>Coming Soon:</strong> Interactive Companion App</p>
+                            <div class="mb-3">
+                                <h4 class="font-medium mb-2">Features:</h4>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="margin-bottom: 8px;">• Professional voice performance</li>
+                                    <li style="margin-bottom: 8px;">• Choice-responsive animations</li>
+                                    <li style="margin-bottom: 8px;">• Emotional learning activities</li>
+                                    <li style="margin-bottom: 8px;">• Customizable story paths</li>
+                                    <li style="margin-bottom: 8px;">• Discussion guides</li>
+                                </ul>
+                            </div>
+                            <p>The app extends the book's meta-narrative approach, creating an interactive experience that grows with the reader.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Character Showcase Section -->
+            <section class="character-showcase">
+                <div class="container">
+                    <h2 class="section-title">Meet the Characters</h2>
+                    <div class="grid grid-4">
+                        <div class="card text-center">
+                            <img src="assets/jeffreymain.JPEG" alt="Jeffree the Monster" style="width: 100%; max-width: 200px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Jeffree</h3>
+                            <p>An awkward purple monster who just wants to fit in. Wears his emotions on his sleeve and his MF shirt with pride.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/Barry.JPEG" alt="Barry" style="width: 100%; max-width: 200px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Barry</h3>
+                            <p>The kid next door who becomes Jeffree's unlikely friend. Loyal, creative, and always ready for an adventure.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/IMG_6110.PNG" alt="Sam" style="width: 100%; max-width: 200px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Sam</h3>
+                            <p>A thoughtful character who brings wisdom and perspective to the group's adventures.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/Smonty.PNG" alt="Smonty" style="width: 100%; max-width: 200px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Smonty</h3>
+                            <p>A cool character with sunglasses and attitude, bringing energy and style to the group dynamic.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Various Concept Artwork Section -->
+            <section class="section" style="background: var(--gray-50);">
+                <div class="container">
+                    <h2 class="section-title">Comic Showcase</h2>
+                    <p class="section-subtitle">Panels from the Jeffree the Monster story showing key moments and character interactions.</p>
+                    <div class="grid grid-2">
+                        <div class="card text-center">
+                            <img src="assets/corrected_comic_panel.JPEG" alt="Talent Show Scene" style="width: 100%; max-width: 400px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Talent Show Preparation</h3>
+                            <p>Jeffree and Barry navigate the pressures of the school talent show, with Jeffree's anxiety showing as he tries to figure out how to perform.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/top_panel_colorized.PNG" alt="Character Interaction Scene" style="width: 100%; max-width: 400px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Character Dynamics</h3>
+                            <p>A key scene showing the interaction between Jeffree, Barry, and other characters in their world, highlighting the story's emotional depth.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Character Design Section -->
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title">Character Design</h2>
+                    <p class="section-subtitle">Character development and design explorations showing the evolution of our beloved characters.</p>
+                    <div class="grid grid-3">
+                        <div class="card text-center">
+                            <img src="assets/Jeffree1.PNG" alt="Jeffree Design 1" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Jeffree Design Study</h3>
+                            <p>Early design exploration for Jeffree's character, showing different approaches to his visual personality.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/Jeffree2.PNG" alt="Jeffree Design 2" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Jeffree Expression Study</h3>
+                            <p>Character expression development showing Jeffree's emotional range and personality traits.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/IMG_6110.JPG" alt="Sam Character Design" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Sam Character Sheet</h3>
+                            <p>Detailed character design sheet for Sam, showing different poses and character details.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/IMG_6112.JPG" alt="Character Lineup" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Character Lineup</h3>
+                            <p>Group character design showing the main cast together and their relative sizes and styles.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/IMG_6113.JPG" alt="Character Expressions" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Expression Studies</h3>
+                            <p>Character expression sheets showing the emotional range and personality of the characters.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/IMG_3621.PNG" alt="Character Development" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Character Development</h3>
+                            <p>Development sketches showing the evolution of character designs and concepts.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Concept Art Section -->
+            <section class="section" style="background: var(--gray-50);">
+                <div class="container">
+                    <h2 class="section-title">Concept Art</h2>
+                    <p class="section-subtitle">Creative explorations and concept artwork from the development of the Jeffree universe.</p>
+                    <div class="grid grid-3">
+                        <div class="card text-center">
+                            <img src="assets/IMG_3705.PNG" alt="World Concept" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>World Building</h3>
+                            <p>Concept art exploring the world and environment where Jeffree's story takes place.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/IMG_6061.JPG" alt="Scene Concept" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Scene Development</h3>
+                            <p>Early scene concepts showing key moments and settings from the story.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/IMG_6066.JPG" alt="Story Concept" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Story Concepts</h3>
+                            <p>Conceptual artwork exploring different story elements and narrative approaches.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/IMG_3629.PNG" alt="Creative Exploration" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Creative Exploration</h3>
+                            <p>Experimental artwork and creative explorations during the development process.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/IMG_3617.PNG" alt="Design Concepts" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Design Concepts</h3>
+                            <p>Various design concepts and artistic explorations for the Jeffree universe.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/IMG_3627.PNG" alt="Artistic Studies" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Artistic Studies</h3>
+                            <p>Artistic studies and experimental approaches to the visual style of the project.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/93E94AB2-551E-49D9-B1BD-4CC3FF3E5E7C.JPG" alt="Development Art" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Development Art</h3>
+                            <p>Development artwork showing the creative process and artistic evolution.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/IMG_6109.JPG" alt="Concept Studies" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Concept Studies</h3>
+                            <p>Conceptual studies exploring different visual approaches and artistic directions.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/0D95FB4F-FD73-441C-9102-DCC34D8A3127.JPG" alt="Creative Process" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Creative Process</h3>
+                            <p>Behind-the-scenes artwork showing the creative process and development journey.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/IMG_3620.PNG" alt="Visual Exploration" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Visual Exploration</h3>
+                            <p>Visual explorations and experimental artwork from the creative development phase.</p>
+                        </div>
+                        <div class="card text-center">
+                            <img src="assets/IMG_6089.JPG" alt="Artistic Development" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 16px;">
+                            <h3>Artistic Development</h3>
+                            <p>Artistic development pieces showing the evolution of the visual style and approach.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Shop Page -->
+        <div id="shop" class="page">
+            <section class="section">
+                <div class="container">
+                    <h1 class="section-title">Metafiction Media Shop</h1>
+                    <p class="section-subtitle">Thoughtfully designed products that extend our storytelling universe into your everyday life.</p>
+                    
+                    <!-- Blank space ready for Shopify Buy Buttons -->
+                    <div class="card text-center" style="background: var(--gray-50); border: 2px dashed var(--gray-300); padding: 80px 40px;">
+                        <h3 class="text-xl mb-3">Shop Coming Soon</h3>
+                        <p class="text-lg mb-4">We're currently setting up our merchandise with Printful and Shopify integration.</p>
+                        <p class="mb-4">Once connected, this space will feature:</p>
+                        <ul class="text-left max-w-md mx-auto mb-6">
+                            <li class="mb-2">• Books and digital downloads</li>
+                            <li class="mb-2">• Character apparel and t-shirts</li>
+                            <li class="mb-2">• Mugs, stickers, and accessories</li>
+                            <li class="mb-2">• Exclusive merchandise from all our projects</li>
+                        </ul>
+                        <p class="text-sm text-gray-600">This page is ready to receive Shopify Buy Button codes once your Printful integration is complete.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Projects Page -->
+        <div id="projects" class="page">
+            <section class="section">
+                <div class="container">
+                    <h1 class="section-title">Our Projects</h1>
+                    <p class="section-subtitle">Expanding the Metafiction Media universe across multiple platforms and experiences.</p>
+                    
+                    <!-- Jeffree the Monster -->
+                    <div class="card mb-6">
+                        <div class="grid grid-2" style="align-items: center;">
+                            <div>
+                                <img src="assets/jeffreymain.JPEG" alt="Jeffree the Monster" style="width: 100%; max-width: 300px; border-radius: 12px;">
+                            </div>
+                            <div>
+                                <h3>Jeffree the Monster</h3>
+                                <p class="mb-3"><strong>Status:</strong> In Development</p>
+                                <p class="mb-3">An awkward monster with no friends—except Barry, the kid next door. After a brutal first day of eighth grade, the two outcasts are forced into the school talent show. A meta-narrative story that acknowledges its own structure while delivering genuine emotional impact.</p>
+                                <p class="mb-3"><strong>Features:</strong> Interactive companion app, professional voice performance, choice-responsive animations, emotional learning activities.</p>
+                                <p><strong>Timeline:</strong> 2024-2025</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Yudi the Unicorn -->
+                    <div class="card mb-6">
+                        <div class="grid grid-2" style="align-items: center;">
+                            <div>
+                                <img src="assets/IMG_2096.JPG" alt="Yudi the Unicorn - U-Ga Universe" style="width: 100%; max-width: 300px; border-radius: 12px;">
+                            </div>
+                            <div>
+                                <h3>Yudi the Unicorn: Rainbow Mane Moments</h3>
+                                <p class="mb-3"><strong>Status:</strong> In Development</p>
+                                <p class="mb-3">Yudy the Yogi's personal journal about how to overcome the worst week ever with yoga.</p>
+                                <p class="mb-3"><strong>Features:</strong> Mindfulness activities, emotional learning, breathing exercises, colorful rainbow-themed storytelling that teaches children coping strategies.</p>
+                                <p><strong>Timeline:</strong> 2024-2025</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Book Pages Showcase -->
+                        <div class="mt-6">
+                            <h4 class="text-xl font-bold mb-4">Book Preview: Rainbow Mane Moments</h4>
+                            <div class="grid grid-3">
+                                <div class="card text-center">
+                                    <img src="assets/465A9FB2-7CB2-487C-AB29-67E06E4FF2A0.PNG" alt="Lion's Breath Pose Pages" style="width: 100%; max-width: 300px; border-radius: 12px; margin: 0 auto 16px;">
+                                    <h5>Lion's Breath Technique</h5>
+                                    <p>Zen learns the Lion's Breath pose to manage frustration and find calm through yoga breathing.</p>
+                                </div>
+                                <div class="card text-center">
+                                    <img src="assets/5105FDA4-6B98-434B-85C4-FAAE6FCC0EFF.PNG" alt="Rainbow Mane Moments Title" style="width: 100%; max-width: 300px; border-radius: 12px; margin: 0 auto 16px;">
+                                    <h5>Zen's Week of Wonderful Worries</h5>
+                                    <p>The story begins with Monday's mane mishap and introduces the Lion's Breath solution for red frustration.</p>
+                                </div>
+                                <div class="card text-center">
+                                    <img src="assets/DBA2DC4C-FECE-4F11-8D38-1622CE67E3D8.PNG" alt="Monday Frustration Day" style="width: 100%; max-width: 300px; border-radius: 12px; margin: 0 auto 16px;">
+                                    <h5>Monday: Frustration Day</h5>
+                                    <p>Zen's horn gets tangled and she learns that "When I'm red, I roar instead" - turning frustration into healing.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Musicasa -->
+                    <div class="card mb-6">
+                        <div class="grid grid-2" style="align-items: center;">
+                            <div>
+                                <img src="assets/IMG_3783.jpg" alt="Musicasa - Jon Plays Musical Setup" style="width: 100%; max-width: 300px; border-radius: 12px;">
+                            </div>
+                            <div>
+                                <h3>Musicasa</h3>
+                                <p class="mb-3"><strong>Status:</strong> Festival Setup in Progress</p>
+                                <p class="mb-3">A family of guitars struggle to find harmony when the electric kids want to go solo because their acoustic parents are too classical for change.</p>
+                                <p class="mb-3"><strong>Features:</strong> Live musical performances, TV show development, streaming supplements, episodic content, educational music programs, festival experiences, and character-based musical storytelling.</p>
+                                <p class="mb-3"><strong>Scope:</strong> Film/original features, talent outreach, musical instrument integration, acoustic and electronic elements, merchandise planning.</p>
+                                <p><strong>Timeline:</strong> 2025-2026</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Musicasa Concept Gallery -->
+                        <div class="mt-4">
+                            <h4 class="mb-3">Development Concepts</h4>
+                            <div class="grid grid-4" style="gap: 16px;">
+                                <img src="assets/IMG_3780.JPG" alt="Musical Instruments & Film Concepts" style="width: 100%; border-radius: 8px; cursor: pointer;" onclick="this.style.transform = this.style.transform ? '' : 'scale(1.5)'; this.style.zIndex = this.style.zIndex ? '' : '1000'; this.style.position = this.style.position ? '' : 'relative';">
+                                <img src="assets/IMG_3781.JPG" alt="Music Universe Planning" style="width: 100%; border-radius: 8px; cursor: pointer;" onclick="this.style.transform = this.style.transform ? '' : 'scale(1.5)'; this.style.zIndex = this.style.zIndex ? '' : '1000'; this.style.position = this.style.position ? '' : 'relative';">
+                                <img src="assets/IMG_3782.JPG" alt="Film & TV Concepts" style="width: 100%; border-radius: 8px; cursor: pointer;" onclick="this.style.transform = this.style.transform ? '' : 'scale(1.5)'; this.style.zIndex = this.style.zIndex ? '' : '1000'; this.style.position = this.style.position ? '' : 'relative';">
+                                <img src="assets/IMG_4004.JPG" alt="Technical Equipment Setup" style="width: 100%; border-radius: 8px; cursor: pointer;" onclick="this.style.transform = this.style.transform ? '' : 'scale(1.5)'; this.style.zIndex = this.style.zIndex ? '' : '1000'; this.style.position = this.style.position ? '' : 'relative';">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Future Projects -->
+                    <div class="section-title" style="font-size: 36px; margin-top: 80px;">What's Next</div>
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <h3>Digital Storytelling Platform</h3>
+                            <p class="mb-3">A web-based platform where readers can explore character backstories, alternative endings, and behind-the-scenes content that breaks the fourth wall across all our projects.</p>
+                            <p><strong>Timeline:</strong> 2025</p>
+                        </div>
+                        <div class="card">
+                            <h3>Educational Partnerships</h3>
+                            <p class="mb-3">Working with schools to integrate meta-narrative techniques and mindfulness practices into creative writing and emotional learning curricula.</p>
+                            <p><strong>Timeline:</strong> 2024-2025</p>
+                        </div>
+                        <div class="card">
+                            <h3>Animated Series</h3>
+                            <p class="mb-3">Bringing our characters to screens with animation that plays with medium conventions, creating viewing experiences that are both entertaining and educational.</p>
+                            <p><strong>Timeline:</strong> 2026</p>
+                        </div>
+                        <div class="card">
+                            <h3>Interactive Book Series</h3>
+                            <p class="mb-3">Expanding our universe with interconnected stories that acknowledge their shared world while maintaining individual narrative integrity.</p>
+                            <p><strong>Timeline:</strong> 2024-2026</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Newsletter Page -->
+        <div id="newsletter" class="page">
+            <section class="section">
+                <div class="container">
+                    <h1 class="section-title">Stay Connected</h1>
+                    <p class="section-subtitle">Get updates on new releases, behind-the-scenes content, and exclusive access to our creative process.</p>
+                    
+                    <div class="card" style="max-width: 600px; margin: 0 auto;">
+                        <h3 class="text-center mb-4">Join Our Newsletter</h3>
+                        <form class="newsletter-form" style="display: flex; flex-direction: column; gap: 16px;">
+                            <input type="email" placeholder="Your email address" style="padding: 16px; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 16px;">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                        <p class="text-center mt-4" style="color: var(--gray-500); font-size: 14px;">We respect your privacy. Unsubscribe at any time.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="page">
+            <section class="section">
+                <div class="container">
+                    <h1 class="section-title">Get in Touch</h1>
+                    <p class="section-subtitle">Have questions about our stories, interested in partnerships, or just want to say hello?</p>
+                    
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <h3>Contact Information</h3>
+                            <p class="mb-3"><strong>Email:</strong> hello@metafictionmedia.com</p>
+                            <p class="mb-3"><strong>Business Inquiries:</strong> business@metafictionmedia.com</p>
+                            <p class="mb-3"><strong>Press:</strong> press@metafictionmedia.com</p>
+                            <p>We typically respond within 24-48 hours.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Send a Message</h3>
+                            <form style="display: flex; flex-direction: column; gap: 16px;">
+                                <input type="text" placeholder="Your Name" style="padding: 16px; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 16px;">
+                                <input type="email" placeholder="Your Email" style="padding: 16px; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 16px;">
+                                <textarea placeholder="Your Message" rows="4" style="padding: 16px; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 16px; resize: vertical;"></textarea>
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Find and activate the corresponding nav link
+            const activeLink = document.querySelector(`[onclick="showPage('${pageId}')"]`);
+            if (activeLink && activeLink.classList.contains('nav-link')) {
+                activeLink.classList.add('active');
+            }
+            
+            // Close mobile menu if open
+            document.getElementById('nav-menu').classList.remove('active');
+        }
+
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navMenu = document.getElementById('nav-menu');
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!navMenu.contains(event.target) && !mobileBtn.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
+
