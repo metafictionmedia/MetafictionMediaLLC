@@ -221,8 +221,7 @@ experiences.
             {[
               { name: "Jeffree", image: "/assets/IMG_3672(2).jpeg", description: "The lovable purple monster with a heart of gold" },
               { name: "Barry", image: "/assets/Barry.jpeg", description: "The brave boy who sees beyond appearances" },
-              { name: "Monty", image: "/assets/IMG_6072.jpeg", description: "The wise green friend with 
-endless stories" },
+              { name: "Monty", image: "/assets/IMG_6072.jpeg", description: "The wise green friend with endless stories" },
               { name: "Sam", image: "/assets/IMG_6073(1).jpeg", description: "The adventurous girl with blonde hair and big dreams" }
             ].map((character, index) => (
               <div key={index} className={`${themeClasses.cardBg} rounded-xl p-6 border text-center`}>
