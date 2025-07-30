@@ -224,8 +224,7 @@ experiences.
 appearances" },
               { name: "Monty", image: "/assets/IMG_6072.jpeg", description: "The wise green friend with 
 endless stories" },
-              { name: "Sam", image: "/assets/IMG_6073(1).jpeg", description: "The adventurous girl with 
-blonde hair and big dreams" }
+              { name: "Sam", image: "/assets/IMG_6073(1).jpeg", description: "The adventurous girl with blonde hair and big dreams" }
             ].map((character, index) => (
               <div key={index} className={`${themeClasses.cardBg} rounded-xl p-6 border text-center`}>
                 <Image
