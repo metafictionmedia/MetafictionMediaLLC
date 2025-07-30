@@ -220,8 +220,7 @@ experiences.
           <div className="grid md:grid-cols-4 gap-6">
             {[
               { name: "Jeffree", image: "/assets/IMG_3672(2).jpeg", description: "The lovable purple monster with a heart of gold" },
-              { name: "Barry", image: "/assets/Barry.jpeg", description: "The brave boy who sees beyond 
-appearances" },
+              { name: "Barry", image: "/assets/Barry.jpeg", description: "The brave boy who sees beyond appearances" },
               { name: "Monty", image: "/assets/IMG_6072.jpeg", description: "The wise green friend with 
 endless stories" },
               { name: "Sam", image: "/assets/IMG_6073(1).jpeg", description: "The adventurous girl with blonde hair and big dreams" }
