@@ -128,8 +128,7 @@ ${themeClasses.buttonSecondary}`}
               },
               {
                 title: "U-GA Universe",
-                description: "Magical adventures in a world where unicorns and friendship create the most 
-powerful magic.",
+                description: "Magical adventures in a world where unicorns and friendship create the most powerful magic.",
                 image: "/assets/5BEC9A40-6F4E-4F5E-A28D-D2474441D5BD.jpeg",
                 section: "about"
               },
