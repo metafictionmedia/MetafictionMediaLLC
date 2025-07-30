@@ -122,8 +122,7 @@ ${themeClasses.buttonSecondary}`}
             {[
               {
                 title: "Jeffree the Monster",
-                description: "A heartwarming tale of friendship and acceptance in a world where being 
-different is a superpower.",
+                description: "A heartwarming tale of friendship and acceptance in a world where being different is a superpower.",
                 image: "/assets/IMG_3672(2).jpeg",
                 section: "jeffree"
               },
