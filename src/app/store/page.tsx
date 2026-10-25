@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { CutWindow } from '@/components/CutWindow'
 import { PostIt } from '@/components/PostIt'
-import { fetchStorefrontProducts, formatPrice, shopifyProducts, shortDescription, type StorefrontProduct } from '@/lib/shopify-products'
+import { fetchStorefrontProducts, fixSpelling, formatPrice, shopifyProducts, shortDescription, type StorefrontProduct } from '@/lib/shopify-products'
 
 const COLORS = ['yellow', 'pink', 'green', 'blue'] as const
 const TILTS = [-1.8, 1.4, -0.9, 2, -1.2, 0.8, -1.6]
@@ -31,14 +31,14 @@ export default function StorePage() {
           const d = data?.[p.shopifyId]
           return (
             <li key={p.id}>
-              <Link href={`/store/${p.slug}`} className="store-item" aria-label={d ? d.title : `Product ${p.id}`}>
+              <Link href={`/store/${p.slug}`} className="store-item" aria-label={d ? fixSpelling(d.title) : `Product ${p.id}`}>
                 {d?.featuredImage ? (
-                  <CutWindow src={d.featuredImage.url} alt={d.featuredImage.altText || d.title} cut={i} sizes="(max-width: 600px) 90vw, 30vw" />
+                  <CutWindow src={d.featuredImage.url} alt={fixSpelling(d.featuredImage.altText || d.title)} cut={i} sizes="(max-width: 600px) 90vw, 30vw" />
                 ) : (
                   <div className={`cut-window cut-${i % 4} skeleton`} style={{ aspectRatio: '1 / 1' }} />
                 )}
                 <PostIt tilt={TILTS[i % TILTS.length]} color={COLORS[i % COLORS.length]}>
-                  <h2>{d?.title ?? '…'}</h2>
+                  <h2>{d ? fixSpelling(d.title) : '…'}</h2>
                   {d && <p className="price">{formatPrice(d.priceRange.minVariantPrice.amount, d.priceRange.minVariantPrice.currencyCode)}</p>}
                   {d && <p className="desc">{shortDescription(d.description)}</p>}
                   <p className="more">View Product</p>

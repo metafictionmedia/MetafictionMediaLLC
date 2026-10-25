@@ -7,7 +7,10 @@ import { MPS_HEADLINE, MPS_LABEL, TAGLINE } from '@/lib/copy'
 export default function Home() {
   return (
     <main className="home">
-      <p className="home-tagline">{TAGLINE}</p>
+      <div className="home-brand">
+        <p className="home-company">Metafiction Media</p>
+        <p className="home-tagline">{TAGLINE}</p>
+      </div>
 
       <CutWindow
         className="home-window"

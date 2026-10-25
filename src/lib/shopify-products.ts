@@ -44,13 +44,18 @@ export async function fetchStorefrontProducts(): Promise<Record<string, Storefro
   return out
 }
 
+/** Spelling lock: the character is always "Jeffrey" in visible site text (Shopify data may still say Jeffree). */
+export function fixSpelling(text: string) {
+  return text.replace(/Jeffree/g, 'Jeffrey').replace(/JEFFREE/g, 'JEFFREY')
+}
+
 export function formatPrice(amount: string, currency: string) {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(Number(amount))
 }
 
 /** Shopify descriptions append a size table; keep the prose for the Post-it. */
 export function shortDescription(desc: string, maxChars = 170) {
-  const prose = desc.split(/Size guide/i)[0].trim()
+  const prose = fixSpelling(desc.split(/Size guide/i)[0].trim())
   if (prose.length <= maxChars) return prose
   const cut = prose.slice(0, maxChars)
   return cut.slice(0, cut.lastIndexOf(' ')) + '…'

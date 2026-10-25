@@ -8,8 +8,9 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // Jeffree collapsed into In Development
+      // Jeffrey collapsed into In Development (old /jeffree URL kept)
       { source: '/jeffree', destination: '/development', permanent: false },
+      { source: '/jeffrey', destination: '/development', permanent: false },
       { source: '/shop', destination: '/store', permanent: false },
     ]
   },

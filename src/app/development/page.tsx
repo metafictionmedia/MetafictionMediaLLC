@@ -4,7 +4,7 @@ import { PostIt } from '@/components/PostIt'
 
 export const metadata: Metadata = { title: 'In Development | Metafiction Media' }
 
-// In Development contains ONLY Jeffree. Copy is verbatim from the live /jeffree page.
+// In Development contains ONLY Jeffrey. Copy is verbatim from the live /jeffree page.
 export default function DevelopmentPage() {
   return (
     <main className="page">
@@ -12,12 +12,12 @@ export default function DevelopmentPage() {
         <h1>In Development</h1>
       </header>
 
-      <article className="dev-project" aria-labelledby="jeffree">
-        <CutWindow src="/assets/jeffree/jeffreymain.jpg" alt="Jeffrey the Monster" cut={2} sizes="(max-width: 860px) 90vw, 55vw" priority />
+      <article className="dev-project" aria-labelledby="jeffrey">
+        <CutWindow src="/assets/jeffrey/jeffreymain.jpg" alt="Jeffrey the Monster" cut={2} sizes="(max-width: 860px) 90vw, 55vw" priority />
 
         <div className="dev-notes">
           <PostIt tilt={-1.4}>
-            <h2 id="jeffree">Jeffrey the Monster</h2>
+            <h2 id="jeffrey">Jeffrey the Monster</h2>
             <p className="eyebrow">Comic Strips &amp; Graphic Novel Series</p>
             <p>A misunderstood teenage puppet-monster struggles to find his place at a new school where the most popular kid is the only other puppet, who is out to make Jeffrey&apos;s life miserable.</p>
             <p><a href="https://jeffreythemonster.com" target="_blank" rel="noopener noreferrer">Visit jeffreythemonster.com for the full story ↗</a></p>
