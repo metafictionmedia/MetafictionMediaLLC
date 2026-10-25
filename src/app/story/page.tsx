@@ -42,6 +42,11 @@ export default function StoryPage() {
           </PostIt>
         </div>
 
+        <div className="story-gallery">
+          <CutWindow src="/assets/bio/phil-whiteboard.jpg" alt="Phil Marquez at a whiteboard covered in sketches" cut={3} sizes="(max-width: 860px) 80vw, 30vw" objectPosition="center 30%" />
+          <CutWindow src="/assets/bio/phil-blazer.jpg" alt="Phil Marquez in a pinstripe blazer" cut={0} sizes="(max-width: 860px) 80vw, 30vw" objectPosition="center 25%" />
+        </div>
+
         <ol className="postit-stack" aria-label="About">
           {BIO.map((para, i) => (
             <PostIt as="li" key={i} tilt={TILTS[i % TILTS.length]} color={i % 3 === 2 ? 'blue' : 'yellow'}>
