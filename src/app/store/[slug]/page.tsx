@@ -6,8 +6,8 @@ import { useEffect } from 'react'
 import { shopifyProducts, SHOPIFY_DOMAIN, SHOPIFY_STOREFRONT_TOKEN } from '@/lib/shopify-products'
 
 const BTN = {
-  'font-family': 'Patrick Hand, sans-serif',
-  'font-size': '19px',
+  'font-family': 'Helvetica Neue, Helvetica, Arial, sans-serif',
+  'font-size': '16px',
   'padding-top': '15px',
   'padding-bottom': '15px',
   'background-color': '#1d1c1a',
@@ -46,18 +46,16 @@ export default function ProductPage() {
               contents: { img: false, imgWithCarousel: true, button: false, buttonWithQuantity: true, description: true },
               styles: {
                 product: { '@media (min-width: 601px)': { 'max-width': '100%', 'margin-left': '0', 'margin-bottom': '20px' }, 'text-align': 'left' },
-                title: { 'font-family': 'Patrick Hand, sans-serif', 'font-size': '30px', color: '#1d1c1a' },
+                title: { 'font-family': 'Helvetica Neue, Helvetica, Arial, sans-serif', 'font-size': '26px', color: '#1d1c1a' },
                 price: { 'font-size': '18px', color: '#1d1c1a' },
                 description: { color: '#1d1c1a' },
                 button: BTN,
               },
               text: { button: 'Add to cart' },
-              googleFonts: ['Patrick Hand'],
             },
             cart: {
               styles: { button: BTN },
               text: { total: 'Subtotal', button: 'Checkout' },
-              googleFonts: ['Patrick Hand'],
             },
             toggle: { styles: { toggle: { 'background-color': '#1d1c1a', ':hover': { 'background-color': '#3a3833' } } } },
           },
