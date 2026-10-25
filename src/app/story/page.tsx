@@ -47,17 +47,30 @@ export default function StoryPage() {
           <CutWindow src="/assets/bio/phil-blazer.jpg" alt="Phil Marquez in a pinstripe blazer" cut={0} sizes="(max-width: 860px) 80vw, 30vw" objectPosition="center 25%" />
         </div>
 
-        <ol className="postit-stack" aria-label="About">
-          {BIO.map((para, i) => (
-            <PostIt as="li" key={i} tilt={TILTS[i % TILTS.length]} color={i % 3 === 2 ? 'blue' : 'yellow'}>
-              <p>{para}</p>
-            </PostIt>
-          ))}
-          <PostIt as="li" tilt={-1} color="green">
-            <h2>Our Mission</h2>
-            <p>To tell emotionally honest, creatively daring, and narratively layered stories across books, video, merchandise, and apps. We are building a universe where characters know they are characters, and stories embrace their own artifice.</p>
+        <div className="story-notes">
+          <PostIt tilt={TILTS[0]}>
+            <p>{BIO[0]}</p>
           </PostIt>
-        </ol>
+
+          {/* Collapsed by default so the page doesn't open on a long stack of notes. */}
+          <details className="note-drawer">
+            <summary>
+              <span className="when-closed">Keep reading · {BIO.length} more notes</span>
+              <span className="when-open">Show less</span>
+            </summary>
+            <ol className="postit-stack" aria-label="About, continued">
+              {BIO.slice(1).map((para, i) => (
+                <PostIt as="li" key={i} tilt={TILTS[(i + 1) % TILTS.length]} color={(i + 1) % 3 === 2 ? 'blue' : 'yellow'}>
+                  <p>{para}</p>
+                </PostIt>
+              ))}
+              <PostIt as="li" tilt={-1} color="green">
+                <h2>Our Mission</h2>
+                <p>To tell emotionally honest, creatively daring, and narratively layered stories across books, video, merchandise, and apps. We are building a universe where characters know they are characters, and stories embrace their own artifice.</p>
+              </PostIt>
+            </ol>
+          </details>
+        </div>
       </div>
 
       <section style={{ marginTop: 80 }} aria-labelledby="vision">
