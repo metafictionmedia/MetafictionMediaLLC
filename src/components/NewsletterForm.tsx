@@ -3,7 +3,7 @@
 import { useEffect } from 'react'
 
 // Same Mailchimp list + form action as the live metafictionmedia.com/newsletter page.
-export function NewsletterForm() {
+export function NewsletterForm({ submitLabel = 'Join the Metafiction Universe' }: { submitLabel?: string } = {}) {
   useEffect(() => {
     const script = document.createElement('script')
     script.src = 'https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'
@@ -34,7 +34,7 @@ export function NewsletterForm() {
           <div aria-hidden="true" style={{ position: 'absolute', left: '-5000px' }}>
             <input type="text" name="b_ad09522c5956208af4ac8afda_80c5d438d9" tabIndex={-1} value="" readOnly />
           </div>
-          <input type="submit" name="subscribe" id="mc-embedded-subscribe" className="paper-button" value="Join the Metafiction Universe" />
+          <input type="submit" name="subscribe" id="mc-embedded-subscribe" className="paper-button" value={submitLabel} />
         </div>
       </form>
     </div>

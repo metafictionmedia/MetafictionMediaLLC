@@ -30,6 +30,10 @@ export default function MetaPromptStudioPage() {
         <LockedPostIt tilt={2} />
       </section>
 
+      <p className="mps-demo-link">
+        <Link href="/meta-prompt-studio/demo" className="paper-button">Try the morality demo →</Link>
+      </p>
+
       <div className="mps-reel">
         {WINDOWS.map((w, i) => (
           <CutWindow key={w.src} src={w.src} alt={w.alt} parallax={0.06} cut={i} fit={w.src.includes('/mps/') ? 'contain' : 'cover'} sizes="(max-width: 760px) 90vw, 82vw" />
@@ -39,6 +43,7 @@ export default function MetaPromptStudioPage() {
       <footer className="page-foot">
         <a href={MPS_SITE_URL} className="ink-link" target="_blank" rel="noopener noreferrer">metapromptstudio.app</a>
         <AppStoreBadge />
+        <Link href="/meta-prompt-studio/demo" className="ink-link">Morality demo</Link>
         <Link href="/newsletter" className="ink-link">Newsletter</Link>
       </footer>
     </main>
