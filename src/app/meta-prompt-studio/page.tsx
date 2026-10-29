@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { CutWindow } from '@/components/CutWindow'
 import { LockedPostIt } from '@/components/LockedPostIt'
 import { AppStoreBadge } from '@/components/AppStoreBadge'
+import { SupportFlag } from '@/components/SupportSection'
 import { MPS_HEADLINE, MPS_LABEL, MPS_SITE_URL } from '@/lib/copy'
 
 export const metadata: Metadata = { title: 'Meta Prompt Studio | Metafiction Media' }
@@ -34,6 +35,8 @@ export default function MetaPromptStudioPage() {
         <Link href="/meta-prompt-studio/demo" className="paper-button">Try the morality demo →</Link>
       </p>
 
+      <div className="mps-support"><SupportFlag href="/support" /></div>
+
       <div className="mps-reel">
         {WINDOWS.map((w, i) => (
           <CutWindow key={w.src} src={w.src} alt={w.alt} parallax={0.06} cut={i} fit={w.src.includes('/mps/') ? 'contain' : 'cover'} sizes="(max-width: 760px) 90vw, 82vw" />
@@ -45,6 +48,7 @@ export default function MetaPromptStudioPage() {
         <AppStoreBadge />
         <Link href="/meta-prompt-studio/demo" className="ink-link">Morality demo</Link>
         <Link href="/newsletter" className="ink-link">Newsletter</Link>
+        <Link href="/support" className="ink-link">Support</Link>
       </footer>
     </main>
   )

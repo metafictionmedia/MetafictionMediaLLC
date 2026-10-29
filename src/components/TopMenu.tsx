@@ -12,6 +12,7 @@ const LINKS = [
   { href: '/development', label: 'In Development' },
   { href: '/store', label: 'Store' },
   { href: '/newsletter', label: 'Newsletter' },
+  { href: '/support', label: 'Support' },
 ]
 
 export function TopMenu() {

@@ -2,11 +2,13 @@ import Link from 'next/link'
 import { CutWindow } from '@/components/CutWindow'
 import { LockedPostIt } from '@/components/LockedPostIt'
 import { AppStoreBadge } from '@/components/AppStoreBadge'
+import { SupportFlag, SupportSection } from '@/components/SupportSection'
 import { MPS_HEADLINE, MPS_LABEL, TAGLINE } from '@/lib/copy'
 
 export default function Home() {
   return (
-    <main className="home">
+    <main>
+      <div className="home">
       <div className="home-brand">
         <p className="home-company">Metafiction Media</p>
         <p className="home-tagline">{TAGLINE}</p>
@@ -24,14 +26,21 @@ export default function Home() {
         <h1 id="mps-headline">{MPS_HEADLINE}</h1>
         <p className="label eyebrow">{MPS_LABEL}</p>
         <LockedPostIt />
+        <SupportFlag />
       </section>
 
       <footer className="home-bottom">
+        <Link href="/support" className="ink-link">Support</Link>
         <Link href="/newsletter" className="ink-link">Newsletter</Link>
         <AppStoreBadge />
         <span className="spacer" />
         <Link href="/meta-prompt-studio" className="ink-link">Meta Prompt Studio →</Link>
       </footer>
+      </div>
+
+      <div className="home-support">
+        <SupportSection id="support" />
+      </div>
     </main>
   )
 }

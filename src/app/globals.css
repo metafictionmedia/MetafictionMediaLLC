@@ -328,3 +328,54 @@ img { max-width: 100%; display: block; }
   .morl-card { position: static; max-height: none; width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { .morl-dial-needle, .morl-card { transition: none; animation: none; } }
+
+/* ===== Support / fundraiser ===== */
+.support-flag {
+  margin: 22px -6px 0 4px; padding: 14px 16px 16px; background: #fff;
+  border: 1.5px dashed var(--ink); border-radius: 6px; transform: rotate(.6deg);
+}
+.support-flag-title { font-weight: 700; font-size: 18px; line-height: 1.2; letter-spacing: -.01em; }
+.support-flag-sub { font-size: 14px; color: var(--ink-soft); margin-top: 4px; }
+.support-flag-actions { display: flex; align-items: center; gap: 10px 16px; flex-wrap: wrap; margin-top: 12px; }
+.support-flag-actions .ink-link { font-size: 15px; }
+.paper-button.support-kofi { background: var(--ink); color: var(--paper-2); border-color: var(--ink); }
+.mps-support { max-width: 520px; margin: -40px 0 70px; }
+.mps-support .support-flag { margin: 0; }
+
+.home-support { padding: 70px 3vw 90px; max-width: 1240px; margin: 0 auto; scroll-margin-top: 20px; }
+.support { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 4vw; align-items: start; scroll-margin-top: 24px; }
+.support-main { padding: 30px clamp(20px, 3vw, 40px) 30px; }
+.support-main h1, .support-main h2 { font-weight: 700; font-size: clamp(30px, 3.6vw, 48px); line-height: 1.05; letter-spacing: -.025em; margin-top: 10px; }
+.support-desc { font-size: 18px; line-height: 1.6; margin-top: 16px; max-width: 60ch; }
+.support-actions { display: flex; align-items: center; gap: 12px 18px; flex-wrap: wrap; margin-top: 22px; }
+.support-actions .paper-button { font-size: 16px; padding: 15px 22px; }
+.support-note { font: 600 13px/1.2 var(--font-sans); color: var(--ink-soft); border: 1.5px dashed var(--pencil); border-radius: 4px; padding: 6px 10px; }
+.support-video { margin-top: 28px; aspect-ratio: 16 / 9; width: 100%; background: #141219; }
+.support-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.support-links { display: flex; gap: 12px 24px; flex-wrap: wrap; margin-top: 20px; }
+.support-offers { display: flex; flex-direction: column; gap: 34px; padding-top: 10px; }
+.support-offer-text { font-size: 17px; line-height: 1.55; margin: 10px 0 16px !important; }
+.support-lifetime .paper-button { font-size: 15px; padding: 14px 18px; }
+.support-tiers ul { list-style: none; margin-top: 10px; }
+.support-tiers li { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; padding: 9px 0; }
+.support-tiers li + li { border-top: 1px dashed rgba(0,0,0,.18); }
+.support-tiers strong { font-size: 20px; min-width: 2.6em; }
+.support-soon { font-size: 14px; color: var(--ink-soft); }
+@media (max-width: 900px) {
+  .support { grid-template-columns: 1fr; gap: 36px; }
+  .support-offers { padding: 0 4px; }
+}
+@media (max-width: 760px) {
+  .home-support { padding: 40px 5vw 70px; }
+  .support-main { padding: 22px 18px 24px; }
+  .support-desc { font-size: 16.5px; }
+  .support-actions .paper-button { width: 100%; justify-content: center; }
+  .support-flag { margin: 16px 0 0; }
+  .support-flag-actions .paper-button { flex: 1 1 auto; justify-content: center; }
+  .mps-support { margin: -30px 0 50px; }
+}
+@media (max-width: 760px) {
+  /* keep the Support flag reachable on the first phone screen */
+  .home-window { min-height: 32svh; }
+  .home-panel .locked-postit { padding: 16px 18px 14px; }
+}
