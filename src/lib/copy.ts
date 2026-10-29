@@ -33,5 +33,5 @@ export const SUPPORT = {
 export const SUPPORT_TIERS: { price: string; perk: string; url: string | null }[] = [
   { price: '$50', perk: 'One year of free full access', url: null },
   { price: '$10', perk: 'One month of free full access', url: null },
-  { price: '$5', perk: 'One month of free basic access', url: null },
+  { price: '$5', perk: 'One month of free basic access', url: 'https://ko-fi.com/s/634638aee0' },
 ]
